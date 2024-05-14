@@ -17,8 +17,8 @@ class LinkedList {
 
   addToHead(val) {
     const newNode = new LinkedListNode(val, this.head);
-    newNode.next = this.head;
-    this.head = newNode;
+    newNode.next = this.head; // point to previous head
+    this.head = newNode; //
     this.length++;
   }
 
@@ -41,12 +41,12 @@ class LinkedList {
       // 1. reassign head node
       current = this.head
 
-      // 2. while this.head points to another node.
+      // 2. while current points to another node.
       while(current.next) {
         // reassign the current node to the next node
         current = current.next
       }
-      // When outside of the loop, the current node is reassigned to the new instance.
+      // When outside of the loop, the current node (e.g. last node) is reassigned to the new instance.
       current.next = newNode
     }
     this.length++
